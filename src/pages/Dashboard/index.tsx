@@ -46,10 +46,12 @@ const Dashboard: React.FC = () => {
       setBalance(formatedBalance);
 
       response.data.transactions.map((transaction: Transaction) => {
+        // eslint-disable-next-line no-param-reassign
         transaction.formattedDate = format(
           new Date(transaction.created_at),
           'dd/MM/yyyy',
         );
+        // eslint-disable-next-line no-param-reassign
         transaction.formattedValue = formatValue(transaction.value);
       });
       setTransactions(response.data.transactions);
